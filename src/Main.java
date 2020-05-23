@@ -8,7 +8,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        PurchaseQueue purchaseQueue = new PurchaseQueue();
+        PurchaseQueue purchaseQueue = new PurchaseQueue(100);
         ArrayList<Customer> customers = new ArrayList<Customer>();
         try {
             Path path = Paths.get("src/CENG112_HW3_TicketingPurchase.txt");
@@ -28,6 +28,24 @@ public class Main {
             e.printStackTrace();
         } catch (ArrayIndexOutOfBoundsException ignored) {
         }
+
+        for (Customer customer : customers) {
+            Purchase purchase = new Purchase(customer.getPurchase_id(), customer, customer.getOccupation_time(), 5);
+            purchaseQueue.insert(purchase);
+        }
+
+        int length = purchaseQueue.getQueueLength();
+        int count = 0;
+        for (Purchase purchase : purchaseQueue.getHeap()) {
+            if (count > length) {
+                break;
+            }
+            System.out.println(purchase.getId());
+            count++;
+        }
+
+
+
 
     }
 }

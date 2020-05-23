@@ -37,4 +37,40 @@ public class Customer implements ICustomer {
     public String toString() {
         return null;
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getOccupation_time() {
+        return occupation_time;
+    }
+
+    public void setOccupation_time(int occupation_time) {
+        this.occupation_time = occupation_time;
+    }
+
+    public int getPurchase_id() {
+        return purchase_id;
+    }
+
+    public void setPurchase_id(int purchase_id) {
+        this.purchase_id = purchase_id;
+    }
+
+    public String getSeat_no() {
+        return seat_no;
+    }
+
+    public void setSeat_no(String seat_no) {
+        this.seat_no = seat_no;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
