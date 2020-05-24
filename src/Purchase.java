@@ -3,15 +3,17 @@ public class Purchase {
     private ICustomer customer;
     private int occupation;
     private int waiting;
+    private String date;
 
     private int priority;
 
-    public Purchase(int id, ICustomer customer, int occupation, int waiting) {
+    public Purchase(int id, ICustomer customer, int occupation, int waiting, String date) {
         this.id = id;
         this.customer = customer;
         this.occupation = occupation;
         this.waiting = waiting;
         this.priority = customer.getPriority();
+        this.date = date;
     }
 
     public String toString() {
@@ -44,6 +46,10 @@ public class Purchase {
 
     public void setOccupation(int occupation) {
         this.occupation = occupation;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public int getWaiting() {

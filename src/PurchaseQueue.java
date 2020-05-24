@@ -1,3 +1,5 @@
+import java.security.PublicKey;
+
 public class PurchaseQueue{
     private Purchase head;
     private int queueLength;
@@ -8,10 +10,11 @@ public class PurchaseQueue{
 
     private Purchase[] heap;
 
-    public PurchaseQueue(int capacity) {
+    public PurchaseQueue(int capacity, String date) {
         this.capacity = capacity + 1;
         heap = new Purchase[capacity];
         queueLength = 0;
+        this.date = date;
     }
 
     public void insert(Purchase purchase) {
@@ -100,6 +103,15 @@ public class PurchaseQueue{
     }
 
     public int getTotalWaitingTime() {
+        int totalTime = 0;
+
+        for (Purchase purchase : heap) {
+            if (purchase != null) {
+                totalTime += purchase.getOccupation();
+            }
+
+        }
+        totalWaitingTime = totalTime;
         return totalWaitingTime;
     }
 
@@ -137,5 +149,22 @@ public class PurchaseQueue{
 
     public void setHeap(Purchase[] heap) {
         this.heap = heap;
+    }
+
+    public String getQueueString() {
+        String output = "";
+        for (Purchase purchase : heap) {
+            String temp = "";
+            if (purchase != null) {
+                Purchase removed = remove();
+                temp += String.valueOf(removed.getId()) + ",";
+                temp += removed.getCustomer().getType() + ",";
+                temp += removed.getCustomer().getSeatNo() + ",";
+                temp += String.valueOf(removed.getOccupation());
+                output += temp + " <= ";
+            }
+
+        }
+        return output;
     }
 }

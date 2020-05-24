@@ -1,16 +1,16 @@
 import java.util.Arrays;
 
-public class List<T> {
+public class ListADT<T> implements ListInterface<T>{
     private T[] list;
     private int numberOfEntries;
     private static final int DEFAULT_CAPACITY = 25;
     private static final int MAX_CAPACITY = 10000;
 
-    public List() {
+    public ListADT() {
         this(DEFAULT_CAPACITY);
     }
 
-    public List(int initialCapacity) {
+    public ListADT(int initialCapacity) {
         initialCapacity = DEFAULT_CAPACITY;
         @SuppressWarnings("unchecked")
         T[] tempList = (T[]) new Object[initialCapacity + 1];
@@ -97,12 +97,10 @@ public class List<T> {
 
     public boolean contains(T entry) {
         boolean contains = false;
-        int index = 1;
-        while (!contains && (index<numberOfEntries)){
-            if (entry.equals(list[index])){
+        for (T a : list){
+            if (entry.equals(a)){
                 contains = true;
             }
-            index++;
         }
         return contains;
     }
@@ -124,12 +122,16 @@ public class List<T> {
     }
 
     public T[] toArray() {
+
         @SuppressWarnings("unchecked")
         T[] array = (T[]) new Object[numberOfEntries];
-
         for (int i = 0; i < numberOfEntries; i++){
             array[i] = list[i+1];
         }
         return array;
+    }
+
+    public T[] getList() {
+        return list;
     }
 }
