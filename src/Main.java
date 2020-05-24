@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class Main {
 
@@ -14,7 +15,7 @@ public class Main {
         // reading from file
         try {
             Path path = Paths.get("src/CENG112_HW3_TicketingPurchase.txt");
-            String[] lines = Files.readAllLines(path).toArray(String[]::new);
+            List<String> lines = Files.readAllLines(path);
 
             int totalTime = 0;
             for (String line : lines) {
@@ -130,6 +131,9 @@ public class Main {
                 System.out.println("Total waiting time for FREE: " + freeWaitingTime);
                 System.out.println("Average waiting time for FREE: " + freeAverage);
                 System.out.println("Recent avenue: ");
+                System.out.println("Display not supported for now!");
+                System.out.println("\n\n");
+                System.out.println("========================================================");
 
             }
         }
