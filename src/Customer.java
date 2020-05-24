@@ -22,13 +22,13 @@ public class Customer implements ICustomer {
     public int getPriority() {
         switch (type) {
             case "GOLD":
-                return 1;
-            case  "SILVER":
-                return  2;
-            case "BRONZE":
-                return  3;
-            case  "FREE":
                 return 4;
+            case  "SILVER":
+                return  3;
+            case "BRONZE":
+                return  2;
+            case  "FREE":
+                return 1;
         }
         return 0;
     }

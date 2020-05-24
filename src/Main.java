@@ -34,18 +34,11 @@ public class Main {
             purchaseQueue.insert(purchase);
         }
 
-        int length = purchaseQueue.getQueueLength();
-        int count = 0;
         for (Purchase purchase : purchaseQueue.getHeap()) {
-            if (count > length) {
-                break;
+            if (purchase != null) {
+                System.out.println(purchaseQueue.remove().getCustomer().getType());
             }
-            System.out.println(purchase.getId());
-            count++;
+
         }
-
-
-
-
     }
 }
