@@ -1,4 +1,4 @@
-import java.util.Arrays;
+//list interface for implementing list adt
 
 public interface ListInterface<T> {
     public void add(T newEntry);

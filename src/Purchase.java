@@ -1,3 +1,5 @@
+//Purchase class
+
 public class Purchase {
     private int id;
     private ICustomer customer;

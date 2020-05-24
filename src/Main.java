@@ -10,6 +10,8 @@ public class Main {
         ListADT<PurchaseQueue> purchaseQueues = new ListADT<>();
         ListADT<Purchase> purchases = new ListADT<Purchase>();
         ListADT<String> dates = new ListADT<>();
+
+        // reading from file
         try {
             Path path = Paths.get("src/CENG112_HW3_TicketingPurchase.txt");
             String[] lines = Files.readAllLines(path).toArray(String[]::new);
@@ -37,9 +39,10 @@ public class Main {
         } catch (ArrayIndexOutOfBoundsException ignored) {
         }
 
-        String[][] deneme;
+
 
         ListADT<Object> datesCreated = new ListADT<Object>();
+        //adding purchases to queue and adding them to purchase Queue list.
         for (int index = 0; index < dates.getLength(); index++) {
             //I used Object[] for handling casting errors.
                 Object[] tempDates = dates.toArray();
@@ -59,6 +62,7 @@ public class Main {
 
         }
 
+        //printing results
         for (int index = 0; index < purchaseQueues.getLength(); index++){
             //I used Object[] for handling casting errors.
             Object[] tempQueues = purchaseQueues.toArray();

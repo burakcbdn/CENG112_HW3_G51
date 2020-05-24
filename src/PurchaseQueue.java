@@ -1,4 +1,4 @@
-import java.security.PublicKey;
+//Purchase queue
 
 public class PurchaseQueue{
     private Purchase head;
@@ -167,4 +167,5 @@ public class PurchaseQueue{
         }
         return output;
     }
+
 }

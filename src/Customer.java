@@ -1,3 +1,5 @@
+//Customer class for purchases
+
 public class Customer implements ICustomer {
     private String type;
     private String seatNo;
